@@ -35,10 +35,13 @@
         <div class="container">
 
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 ">
-                <a href="#home" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Brgy 14
-                        Healthcare</h1>
-                </a>
+
+
+<a href="#home" class="navbar-brand">
+    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-hospital me-2"></i></i>PINAGSAMA
+        HEALTHCARE</h1>
+
+</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -53,7 +56,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
                             </li>
                             <li class="nav-item">
@@ -67,7 +70,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">Approval</a>
-                            </li>
+                            </li> -->
                             <!-- Dropdown Menu for Doctors -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,7 +81,7 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
-                                     
+
                                 </ul>
                             </li>
 
@@ -203,7 +206,7 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="../assets/js/main.js"></script>
-    
+
     <script>
         function clearDate() {
             document.getElementById('date').value = '';

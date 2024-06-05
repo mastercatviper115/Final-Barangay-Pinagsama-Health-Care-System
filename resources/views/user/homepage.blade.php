@@ -76,23 +76,23 @@
                             <!--
                 @if (Route::has('login'))
 @auth
-        
+
                     <li class="nav-item">
                       <a class="nav-link"  href="{{ url('myappointment') }}">My Appointment</a>
                     </li>
-        
+
                     <x-app-layout>
-                   
+
                     </x-app-layout>
 @else
     <li class="nav-item" style="margin: 20px 0px 0px 10px ;">
                       <a class="btn btn-primary ml-lg-3" style="font-size: 20px;" href="{{ route('login') }}">Login</a>
                     </li>
-        
+
                     <li class="nav-item" style="margin: 20px 0px 0px 10px ;">
                         <a class="btn btn-primary ml-lg-3" style="font-size: 20px;" href="{{ route('register') }}">Register</a>
                       </li>
-        
+
                  @endAuth
 @endif
             -->
@@ -330,7 +330,7 @@
                 <div class="col-lg-6">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">Book An Appointment</h1>
-                        
+
                         <div class="d-flex justify-content-end" id="alertContainer">
                             @if ($message = Session::get('error'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -338,7 +338,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @endif
-                
+
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -363,7 +363,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                                
+
                                 <div class="col-12 col-sm-6" data-wow-delay="300ms">
                                     <select class="form-select bg-light border-0" style="height: 55px;"
                                         name="service" placeholder="Select Services">
@@ -444,7 +444,7 @@
     <!-- Search Start -->
     <!--
     <div class="container-fluid bg-primary my-5 py-5" id="doctors">
-        
+
         <div class="container py-5">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
                 <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
@@ -580,15 +580,15 @@
                 // Scroll to the alert container if it has messages
                 alertContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-    
+
             @if ($errors->any())
                 // Find the first element with an error
                 const firstErrorElement = document.querySelector('.invalid-feedback');
-    
+
                 if (firstErrorElement) {
                     // Scroll to the parent element of the first error element
                     firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
+
                     // Optionally, highlight the input field with the error
                     const inputField = firstErrorElement.previousElementSibling;
                     if (inputField) {
