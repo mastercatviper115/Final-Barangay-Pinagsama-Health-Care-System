@@ -146,5 +146,107 @@ class UserSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
         ]);
+        DB::table('barangays')->insert([
+            [
+                'id' => 1,
+                'barangay_code' => 'BP-0001',
+                'description' => null,
+                'name' => 'Mike Cruz',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 2,
+                'barangay_code' => 'BP-0002',
+                'description' => NULL,
+                'name' => 'Jay Lingo',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 3,
+                'barangay_code' => 'BP-0003',
+                'description' => null,
+                'name' => 'Arwin Santos',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 4,
+                'barangay_code' => 'BP-0004',
+                'description' => null,
+                'name' => 'Michael Panganiban',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 5,
+                'barangay_code' => 'BP-0005',
+                'description' => null,
+                'name' => 'Stephen Manalastas',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 6,
+                'barangay_code' => 'BP-0006',
+                'description' => null,
+                'name' => 'Bolumino Maguid',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 7,
+                'barangay_code' => 'BP-0007',
+                'description' => null,
+                'name' => 'Vindag Liwanag',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 8,
+                'barangay_code' => 'BP-0008',
+                'description' => null,
+                'name' => 'Meya Nawita',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 9,
+                'barangay_code' => 'BP-0009',
+                'description' => null,
+                'name' => 'Janine Pawinag',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 10,
+                'barangay_code' => 'BP-0010',
+                'description' => null,
+                'name' => 'Allan Tenorio',
+                'is_active' => 1,
+
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
     }
 }

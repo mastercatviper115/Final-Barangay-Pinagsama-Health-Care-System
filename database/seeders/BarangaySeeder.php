@@ -13,10 +13,10 @@ class BarangaySeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 30; $i++) {
-            Barangay::factory()->create([
-                'barangay_code' => 'BP-' . str_pad($i, 4, '0', STR_PAD_LEFT),
-            ]);
-        }
+        // for ($i = 1; $i <= 30; $i++) {
+        //     Barangay::factory()->create([
+        //         'barangay_code' => 'BP-' . str_pad($i, 4, '0', STR_PAD_LEFT),
+        //     ]);
+        // }
     }
 }

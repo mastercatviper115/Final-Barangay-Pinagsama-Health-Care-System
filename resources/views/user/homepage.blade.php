@@ -73,6 +73,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">Contact</a>
                             </li>
+
+
                             <!--
                 @if (Route::has('login'))
 @auth
@@ -81,9 +83,7 @@
                       <a class="nav-link"  href="{{ url('myappointment') }}">My Appointment</a>
                     </li>
 
-                    <x-app-layout>
 
-                    </x-app-layout>
 @else
     <li class="nav-item" style="margin: 20px 0px 0px 10px ;">
                       <a class="btn btn-primary ml-lg-3" style="font-size: 20px;" href="{{ route('login') }}">Login</a>
@@ -96,6 +96,8 @@
                  @endAuth
 @endif
             -->
+
+
                         </ul>
                     </div>
                 </div> <!-- .navbar-collapse -->

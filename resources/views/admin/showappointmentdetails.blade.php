@@ -114,7 +114,7 @@
     </div>
     </div>
 
-    <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
+    <!-- <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
@@ -122,27 +122,29 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container-fluid py-5" id="about">
         <div class="container">
             <div class="d-flex justify-content-end">
                 @if ($message = Session::get('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>{{ $message }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ $message }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
             </div>
 
-            <div class="row gx-5">
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="appointment-container">
                 <div align="center" style="padding-top:10px;">
                     <div class="form-group mb-2">
                         <label for="name" class="form-label">Name</label>
@@ -186,30 +188,35 @@
 
                     <div class="d-flex justify-content-end">
                         @if (Auth::check() && Auth::user()->usertype == 2)
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button class="mx-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Followup
-                          </button>
+                            </button>
 
                             {{-- <form action="{{ route('appointment.followup', ['id' => $appoint->id]) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('PUT')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to to save as followup?')">Followup</button>
+                                <button  class="mx-1 btn btn-danger" onclick="return confirm('Are you sure to to save as followup?')">Followup</button>
                             </form> --}}
                             <form action="{{ route('appointment.complete', ['id' => $appoint->id]) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('PUT')
-                                <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure to save as complete?')">Complete </button>
+                                <button class="mx-1 btn btn-success" onclick="return confirm('Are you sure to save as complete?')">Complete</button>
                             </form>
                             <form action="{{ route('appointment.cancel', ['id' => $appoint->id]) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('PUT')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to cancel this?')">Cancel</button>
-                                </form>
+                                <button class="mx-1 btn btn-danger" onclick="return confirm('Are you sure to cancel this?')">Cancel</button>
+                            </form>
                         @endif
-                        <a href="{{ route('admin.showappointments') }}" class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">Back</a>
+                        <button class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">
+                            <a href="{{ route('admin.showappointments') }}">Back</a>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 
@@ -235,8 +242,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">Follow Up</h5>
+          <button  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form action="{{ route('appointment.followup', ['id' => $appoint->id]) }}" method="POST">
@@ -245,9 +252,9 @@
                 <input type="hidden" name="action" value="followup">
                 <div class="modal-header">
                     <h5 class="modal-title" id="followupModalLabel">Set Follow-up Date</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- <button  class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> -->
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -268,8 +275,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Save Follow-up</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  class="btn btn-danger">Save Follow-up</button>
+                    <button  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
@@ -283,7 +290,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>npm
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

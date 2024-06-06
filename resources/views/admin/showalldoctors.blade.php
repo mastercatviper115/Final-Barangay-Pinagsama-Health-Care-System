@@ -124,7 +124,7 @@
                     <th style="padding:10px">Speciality</th>
                     <th style="padding:10px">Room Number</th>
                     <th style="padding:10px">Image</th>
-                    <th style="padding:10px">Delete</th>
+                    <th style="padding:10px">Action</th>
                     <th style="padding:10px">Update</th>
                 </tr>
 
@@ -140,7 +140,7 @@
                       <form action="{{ route('admin.deletedoctor', ['id' => $doctor->id]) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
-                        <button  class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')">Delete</button>
+                        <button  class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')">Inactive</button>
                       </form>
                     </td>
                     <td><a class="btn btn-primary" href="{{ route('admin.showdoctordetails', ['id' => $doctor->id]) }}">Show Details</td>
