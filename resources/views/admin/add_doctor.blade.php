@@ -40,13 +40,14 @@
 </head>
 
 <body>
-    <div class="container-fluid  bg-pearl shadow-sm">
+<div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
 
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 ">
-                <a href="#home" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Brgy 14
-                        Healthcare</h1>
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <a href="/" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-hospital me-2"></i></i>PINAGSAMA
+                        HEALTHCARE</h1>
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -62,13 +63,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
+                            <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.showfollowup') }}">Followup</a></li>
+
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/disapproved') }}">Disapproved</a>
                             </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('showdoctor') }}">Records</a>
                             </li>
                             <li class="nav-item">
@@ -78,10 +85,11 @@
                                 <a class="nav-link" href="#contact">Approval</a>
                             </li> -->
                             <!-- Dropdown Menu for Doctors -->
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Doctors
                                 </a>
+
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
@@ -89,15 +97,14 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
 
                                 </ul>
-                            </li>
-
-
+                            </li> -->
 
 
 
                             <x-app-layout>
 
                             </x-app-layout>
+
 
 
                         </ul>
@@ -118,7 +125,7 @@
         </div>
     </div> -->
 
-<div class="container-fluid py-4 bg-red-100 id="about">
+<div class="container-fluid py-4 id="about">
     <div class="container">
         <div class="row gx-5">
             <div class="row">
@@ -145,7 +152,7 @@
 
                     <div class="row">
                         <div class="col-6 offset-3">
-                            <div class="card p-3 bg-red-200 ">
+                            <div class="card p-3  ">
                                 <div class="card-body">
                                     <form action="{{ route('admin.storedoctor') }}" method="POST" enctype="multipart/form-data">
                                         @csrf

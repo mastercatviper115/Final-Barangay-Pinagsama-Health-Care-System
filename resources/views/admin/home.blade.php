@@ -64,6 +64,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
+                            <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.showfollowup') }}">Followup</a></li>
+
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
                             </li>
@@ -81,10 +86,11 @@
                                 <a class="nav-link" href="#contact">Approval</a>
                             </li> -->
                             <!-- Dropdown Menu for Doctors -->
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Doctors
                                 </a>
+
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
@@ -92,7 +98,7 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
 
                                 </ul>
-                            </li>
+                            </li> -->
 
 
 
@@ -114,22 +120,24 @@
 
 
     <!-- Hero Start -->
+<!--
     <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
-                    <!--
+
                     <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style="border-color: rgba(256, 256, 256, .3) !important;">Welcome To Brgy. 14 Healthcare</h5>
-                    <h1 class="display-1 text-white mb-md-4">Best Barangay Healthcare at your Service</h1>-->
+                    <h1 class="display-1 text-white mb-md-4">Best Barangay Healthcare at your Service</h1>
                     <div class="pt-2">
 
 
                     </div>
-                    -->
+
                 </div>
             </div>
         </div>
     </div>
+    -->
     <!-- Hero End -->
     <div class="container-fluid py-5" id="about">
         <div class="container">
@@ -251,7 +259,7 @@
     <!-- Footer Start -->
 
 
-    <div class="container-fluid bg-dark text-light border-top border-secondary py-4 flex-bottom">
+    <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0">
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start">
@@ -287,6 +295,9 @@
             document.getElementById('date').value = '';
         }
     </script>
+
+
+
 </body>
 
 </html>

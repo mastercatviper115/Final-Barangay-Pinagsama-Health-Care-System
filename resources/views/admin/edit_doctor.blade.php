@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>LGU Healthcare Management System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -23,10 +23,18 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <div class="d-flex justify-content-end">
@@ -36,7 +44,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-    
+
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ $message }}</strong>
@@ -44,21 +52,21 @@
             </div>
         @endif
     </div>
-    
+
     <form action="{{ route('admin.updatedoctor', $doctor->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        
+
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" class="form-control" value="{{ $doctor->name }}" required>
         </div>
-    
+
         <div class="form-group">
             <label for="phone">Phone:</label>
             <input type="text" id="phone" name="phone" class="form-control" value="{{ $doctor->phone }}">
         </div>
-    
+
         <div class="form-group">
             <label for="specialization_id">Specialization:</label>
             <select name="specialization_id" id="specialization_id" class="form-control" required>
@@ -69,22 +77,22 @@
                 @endforeach
             </select>
         </div>
-    
+
         <div class="form-group">
             <label for="room">Room:</label>
             <input type="text" id="room" name="room" class="form-control" value="{{ $doctor->room }}">
         </div>
-    
+
         <div class="form-group">
             <label for="image">Image:</label>
             <input type="file" id="image" name="image" class="form-control">
         </div>
-    
+
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" class="form-control" value="{{ $doctor->user->email }}" required>
         </div>
-    
+
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Leave blank to keep the current password">
@@ -94,7 +102,7 @@
                 </span>
             @enderror
         </div>
-    
+
         <div class="form-group">
             <label for="password_confirmation">Confirm Password:</label>
             <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password">
@@ -104,7 +112,7 @@
                 </span>
             @enderror
         </div>
-    
+
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary">Update Doctor</button>
             <a href="{{ route('admin.showalldoctors') }}" class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">Cancel</a>
@@ -129,7 +137,7 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="../assets/js/main.js"></script>
-    
+
     <script>
         function clearDate() {
             document.getElementById('date').value = '';

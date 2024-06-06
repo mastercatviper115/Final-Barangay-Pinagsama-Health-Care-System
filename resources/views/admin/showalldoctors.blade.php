@@ -38,73 +38,89 @@
 
 </head>
   <body>
-    <div class="container-fluid sticky-top bg-white shadow-sm" >
-      <div class="container">
+  <div class="container-fluid sticky-top bg-white shadow-sm">
+        <div class="container">
 
-  <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-      <a href="#home" class="navbar-brand">
-          <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Brgy 14 Healthcare</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
+            <a href="/" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-hospital me-2"></i>PINAGSAMA
+                        HEALTHCARE</h1>
 
-      <div class="collapse navbar-collapse" id="navbarSupport" style="visibility: visible !important;">
-          <div class="navbar-nav ms-auto py-0">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{url('home')}}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.showappointments')}}">Show Appointment</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="{{url('showdoctor')}}">Records</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Transaction History</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Approval</a>
-        </li> -->
-        <!-- Dropdown Menu for Doctors -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Doctors
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
-            <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
-            <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
-            <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        </ul>
-      </li>
+                <div class="collapse navbar-collapse" id="navbarSupport" style="visibility: visible !important;">
+                    <div class="navbar-nav ms-auto py-0">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url('home') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
+                            </li>
+                            <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.showfollowup') }}">Followup</a></li>
+
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('show/disapproved') }}">Disapproved</a>
+                            </li>
+                            </li> -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="{{ url('showdoctor') }}">Records</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Transaction History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Approval</a>
+                            </li> -->
+                            <!-- Dropdown Menu for Doctors -->
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Doctors
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
+
+                                </ul>
+                            </li> -->
 
 
 
+                            <x-app-layout>
 
-          <x-app-layout>
-
-          </x-app-layout>
+                            </x-app-layout>
 
 
-        </ul>
-          </div>
-      </div> <!-- .navbar-collapse -->
-    </div> <!-- .container -->
-  </nav>
-      </div>
-  </div>
 
-       <div class="container-fluid  page-body-wrapper bg-red-100 h-screen">
+                        </ul>
+                    </div>
+                </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
+        </nav>
+    </div>
+    </div>
+
+       <div class="container-fluid  page-body-wrapper ">
 
         <div align="center" style="padding-top:10px;">
 
             <table>
                 <tr style="background-color: bisque; color: black;">
                     <th style="padding:10px">Doctor Name</th>
-                    <th style="padding:10px">Phone</th>
+                    <th styleA="padding:10px">Phone</th>
                     <th style="padding:10px">Speciality</th>
                     <th style="padding:10px">Room Number</th>
                     <th style="padding:10px">Image</th>
