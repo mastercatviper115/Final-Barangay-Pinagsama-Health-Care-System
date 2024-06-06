@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+
+<head>
+<meta charset="utf-8">
     <title>LGU Healthcare Management System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -10,7 +11,9 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -21,15 +24,18 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <!--  Full Calendar -->
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
   <body>
     <div class="container-fluid sticky-top bg-white shadow-sm" >
@@ -52,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.showappointments')}}">Show Appointment</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{{url('showdoctor')}}">Records</a>
           </li>
         <li class="nav-item">
@@ -60,7 +66,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Approval</a>
-        </li>
+        </li> -->
         <!-- Dropdown Menu for Doctors -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,18 +77,18 @@
             <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
-             
+
         </ul>
       </li>
-        
 
-         
+
+
 
           <x-app-layout>
-         
+
           </x-app-layout>
 
-          
+
         </ul>
           </div>
       </div> <!-- .navbar-collapse -->
@@ -90,10 +96,10 @@
   </nav>
       </div>
   </div>
-      
-       <div class="container-fluid page-body-wrapper">
 
-        <div align="center" style="padding-top:100px;">
+       <div class="container-fluid  page-body-wrapper bg-red-100 h-screen">
+
+        <div align="center" style="padding-top:10px;">
 
             <table>
                 <tr style="background-color: bisque; color: black;">
@@ -122,32 +128,35 @@
                       </form>
                     </td>
                     <td><a class="btn btn-primary" href="{{ route('admin.showdoctordetails', ['id' => $doctor->id]) }}">Show Details</td>
-                    
+
 
                 </tr>
                 @endforeach
         </div>
        </div>
         <!-- partial -->
-      
- 
-        <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
-          <div class="container">
-              <div class="row g-5">
-                  <div class="col-md-6 text-center text-md-start">
-                      <p class="mb-md-0">&copy; <a class="text-primary" href="#">Pinagsama Healthcare Management System</a>. All Rights Reserved.</p>
-                  </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Footer End -->
-  
-  
+
+    <!-- Footer Start -->
+
+
+    <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0  align-bottom origin-bottom">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Pinagsama Healthcare Management
+                            System</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer End -->
+
+
       <!-- Back to Top -->
       <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-  
-  
+
+
       <!-- JavaScript Libraries -->
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -158,7 +167,7 @@
       <script src="../assets/lib/tempusdominus/js/moment.min.js"></script>
       <script src="../assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
       <script src="../assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-  
+
       <!-- Template Javascript -->
       <script src="../assets/js/main.js"></script>
   </body>

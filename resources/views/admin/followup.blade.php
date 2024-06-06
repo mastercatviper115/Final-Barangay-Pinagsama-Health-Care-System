@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>LGU Healthcare Management System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -24,10 +25,18 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -53,7 +62,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
                             </li>
                             <li class="nav-item">
@@ -67,7 +76,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">Approval</a>
-                            </li>
+                            </li> -->
                             <!-- Dropdown Menu for Doctors -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,7 +87,7 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
-                                     
+
                                 </ul>
                             </li>
 
@@ -99,7 +108,7 @@
     </div>
     </div>
 
-    <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
+    <!-- <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
@@ -107,8 +116,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid py-5" id="about">
+    </div> -->
+    <div class="container-fluid py-5 bg-red-100" id="about">
         <div class="container">
             <div class="row gx-5">
 
@@ -171,8 +180,7 @@
 
 
 
-
-    <div class="container-fluid bg-dark text-light border-top border-secondary py-4 flex-bottom">
+    <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0">
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start">
@@ -182,7 +190,6 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
 
 
     <!-- Back to Top -->
@@ -203,7 +210,7 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="../assets/js/main.js"></script>
-    
+
     <script>
         function clearDate() {
             document.getElementById('date').value = '';

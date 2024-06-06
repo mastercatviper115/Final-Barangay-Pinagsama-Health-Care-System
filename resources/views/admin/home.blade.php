@@ -194,7 +194,7 @@
     </div>
 
     <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
+    <!-- <div class="container-fluid py-5" id="about">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
@@ -242,7 +242,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

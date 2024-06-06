@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>LGU Healthcare Management System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -24,14 +25,22 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div class="container-fluid  bg-white shadow-sm">
+    <div class="container-fluid  bg-pearl shadow-sm">
         <div class="container">
 
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 ">
@@ -53,7 +62,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
                             </li>
                             <li class="nav-item">
@@ -67,7 +76,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">Approval</a>
-                            </li>
+                            </li> -->
                             <!-- Dropdown Menu for Doctors -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,7 +87,7 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
-                                     
+
                                 </ul>
                             </li>
 
@@ -99,7 +108,7 @@
     </div>
     </div>
 
-    <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
+    <!-- <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
@@ -107,75 +116,73 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid py-5" id="about">
-        <div class="container">
-            <div class="row gx-5">
+    </div> -->
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card overflow-hidden">
-      
-                        </div>
-      
-                      <div class="d-flex justify-content-end">
-                          @if ($message = Session::get('error'))
-                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                  <strong>{{ $message }}</strong>
-                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                              </div>
-                          @endif
-      
-                          @if ($message = Session::get('success'))
-                              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                  <strong>{{ $message }}</strong>
-                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                              </div>
-                          @endif
-                      </div>
-      
-                      <div class="row">
+<div class="container-fluid py-4 bg-red-100 id="about">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card overflow-hidden bg-transparent border-0 pt-2 pb-4 ">
+                       <h1 class="text-4xl text-center ">Create New Doctor</h1>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        @if ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{ $message }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ $message }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="row">
                         <div class="col-6 offset-3">
-                            <div class="card p-3">
+                            <div class="card p-3 bg-red-200 ">
                                 <div class="card-body">
                                     <form action="{{ route('admin.storedoctor') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
 
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="form-group mb-3">
-                                                    <label for="image" class="form-label">Doctor Image</label>
-                                                    <input type="file" name="image" class="form-control">
-                                                    @error('image')
-                                                        <span class="invalid-feedback" role="alert" style="display: block">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
+                                        <div class="row mb-3">
+                                            <div class="col-lg-4 form-group">
+                                                <label for="image" class="form-label">Doctor Image</label>
+                                                <input type="file" name="image" class="form-control class="w-auto"">
+                                                @error('image')
+                                                    <span class="invalid-feedback ">
+                                                        <strong >{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
 
-                                        <div class="form-group mb-2">
+                                        <div class="form-group">
                                             <label for="name" class="form-label">Doctor Name</label>
                                             <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" placeholder="Enter Doctor Name Here">
                                             @error('name')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
 
-                                        <div class="form-group mb-2">
+                                        <div class="form-group">
                                             <label for="phone" class="form-label">Phone</label>
                                             <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" placeholder="Enter Phone Number Here">
                                             @error('phone')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
 
-                                        <div class="form-group mb-2">
+                                        <div class="form-group">
                                             <label for="specialization_id" class="form-label">Specialization</label>
                                             <select name="specialization_id" id="specialization_id" class="form-control">
                                                 <option value="">Select Specialization</option>
@@ -184,47 +191,47 @@
                                                 @endforeach
                                             </select>
                                             @error('specialization_id')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
 
-                                        <div class="form-group mb-2">
+                                        <div class="form-group">
                                             <label for="room" class="form-label">Room</label>
                                             <input type="text" name="room" id="room" class="form-control" value="{{ old('room') }}" placeholder="Enter Room Number Here">
                                             @error('room')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
 
-                                        <div class="form-group mb-2">
+                                        <div class="form-group">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Here">
                                             @error('email')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
-        
-                                        <div class="form-group mb-2">
+
+                                        <div class="form-group">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password Here">
                                             @error('password')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
-        
-                                        <div class="form-group mb-2">
+
+                                        <div class="form-group">
                                             <label for="password_confirmation" class="form-label">Confirm Password</label>
                                             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirm Password">
                                             @error('password_confirmation')
-                                                <span class="invalid-feedback" role="alert" style="display: block">
+                                                <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -232,17 +239,21 @@
 
                                         <div class="d-flex justify-content-end">
                                             <button type="submit" class="btn btn-warning">Submit</button>
-                                            <a href="{{ route('admin.createdoctor') }}" class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">Cancel</a>
+                                            <a href="{{ route('admin.createdoctor') }}" class="btn btn-default ms-2" style="border: 1px solid #D8D8D8;">Cancel</a>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
 
 
 
@@ -278,7 +289,7 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="../assets/js/main.js"></script>
-    
+
     <script>
         function clearDate() {
             document.getElementById('date').value = '';

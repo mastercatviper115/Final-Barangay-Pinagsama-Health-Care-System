@@ -102,7 +102,7 @@
     </div>
     </div>
 
-    <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
+    <!-- <div class="container-fluid bg-primary py-5 mb-5 hero-header heroheight" id="home">
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
@@ -110,7 +110,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container-fluid py-5" id="about">
         <div class="container">
             <div class="row gx-5">
@@ -174,8 +174,7 @@
 
 
 
-
-    <div class="container-fluid bg-dark text-light border-top border-secondary py-4 flex-bottom">
+    <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0">
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start">
@@ -185,7 +184,6 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
 
 
     <!-- Back to Top -->
