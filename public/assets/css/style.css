@@ -9,6 +9,30 @@
 .gradient-bg {
     background: linear-gradient(to top, rgb(255, 139, 139), rgb(252, 73, 73));
 }
+.btn-warning1-custom {
+    background-color:rgb(184, 5, 5);
+    border-color: rgb(233, 8, 8);
+    color: white;
+}
+
+.btn-warning1-custom:hover {
+    background-color: rgba(255, 0, 0, 0.777);
+    border-color: rgb(244, 21, 21);
+    color: white;
+}
+
+.btn-secondary-custom {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary-custom:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: white;
+}
+
 /* Custom styles for form elements */
 .form-group {
     margin-bottom: 1.5rem;

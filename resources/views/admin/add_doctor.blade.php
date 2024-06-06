@@ -58,13 +58,13 @@
                     <div class="navbar-nav ms-auto py-0">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('home') }}">Home</a>
+                                <a class="nav-link " href="{{ url('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
                             <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
 
                                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.showfollowup') }}">Followup</a></li>
 
@@ -131,7 +131,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card overflow-hidden bg-transparent border-0 pt-2 pb-4 ">
-                       <h1 class="text-4xl text-center ">Create New Doctor</h1>
+                       <h1 class="text-4xl text-center ">Create New Doctor Account</h1>
                     </div>
 
                     <div class="d-flex justify-content-end">
@@ -152,7 +152,7 @@
 
                     <div class="row">
                         <div class="col-6 offset-3">
-                            <div class="card p-3  ">
+                            <div class="card p-3 bg-red-100 ">
                                 <div class="card-body">
                                     <form action="{{ route('admin.storedoctor') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
@@ -245,9 +245,14 @@
                                         </div>
 
                                         <div class="d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-warning">Submit</button>
-                                            <a href="{{ route('admin.createdoctor') }}" class="btn btn-default ms-2" style="border: 1px solid #D8D8D8;">Cancel</a>
-                                        </div>
+    <button  class="btn btn-warning1-custom btn-lg shadow-sm" >
+        <i  class="fas fa-paper-plane"></i> Submit
+    </button>
+    <a href="{{ route('admin.createdoctor') }}" class="btn btn-secondary-custom btn-lg ms-3 shadow-sm">
+        <i class="fas fa-times"></i> Cancel
+    </a>
+</div>
+
                                     </form>
                                 </div>
                             </div>

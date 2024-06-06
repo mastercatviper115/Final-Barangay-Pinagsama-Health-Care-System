@@ -19,6 +19,7 @@ class BarangayFactory extends Factory
         return [
             'barangay_code' => null,
             'description' => $this->faker->sentence,
+            'name' => $this->faker->name,
             // 'is_active' => $this->faker->boolean,
             'is_active' => 1,
         ];

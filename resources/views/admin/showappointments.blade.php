@@ -60,7 +60,7 @@
                                 <a class="nav-link" href="{{ url('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
+                                <a class="nav-link active" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
                             <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>

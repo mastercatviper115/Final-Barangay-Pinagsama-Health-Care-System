@@ -61,7 +61,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
-                            <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
+                            <li class="nav-items"><a class="nav-link active" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
 
                                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.showfollowup') }}">Followup</a></li>
@@ -140,7 +140,7 @@
                       <form action="{{ route('admin.deletedoctor', ['id' => $doctor->id]) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')">Delete</button>
+                        <button  class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')">Delete</button>
                       </form>
                     </td>
                     <td><a class="btn btn-primary" href="{{ route('admin.showdoctordetails', ['id' => $doctor->id]) }}">Show Details</td>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('barangay_code')->nullable(); // older is barangayd baka magkaroon ng confusion sa barangay_id at barangayid kapag i rerelationship
             $table->string('description')->nullable();
+            $table->string('name')->nullable();
             $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
