@@ -24,14 +24,22 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    
+
     <div class="d-flex justify-content-end">
         @if ($message = Session::get('error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -48,56 +56,54 @@
         @endif
     </div>
 
-    <div class="row">
-    <div class="col-6 offset-3">
-        <div class="card p-3">
-            <div class="card-body">
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+            <div class="container py-40">
                 {{-- <form action="{{ route('admin.storedoctor') }}" method="POST" enctype="multipart/form-data">
                     @csrf --}}
 
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group mb-3">
-                                <label for="image" class="form-label">Doctor Image</label>
-                                <img height="200" width="200" src="{{Storage::url($doctor->image)}}">
-                            </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-4 text-center">
+                            <img class="img-thumbnail rounded-circle" height="200" width="200" src="{{Storage::url($doctor->image)}}" alt="Doctor Image">
                         </div>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="name" class="form-label">Doctor Name</label>
-                        <p>{{$doctor->name}}</p>
+                    <div class="mb-3">
+                        <label class="form-label">Doctor Name</label>
+                        <p class="form-control-static">{{$doctor->name}}</p>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="phone" class="form-label">Phone</label>
-                        <p>{{$doctor->phone}}</p>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <p class="form-control-static">{{$doctor->phone}}</p>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="specialization_id" class="form-label">Specialization</label>
-                        <p>{{$doctor->specialization->name}}</p>
+                    <div class="mb-3">
+                        <label class="form-label">Specialization</label>
+                        <p class="form-control-static">{{$doctor->specialization->name}}</p>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="room" class="form-label">Room</label>
-                        <p>{{$doctor->room}}</p>
+                    <div class="mb-3">
+                        <label class="form-label">Room</label>
+                        <p class="form-control-static">{{$doctor->room}}</p>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="email" class="form-label">Email</label>
-                        <p>{{$doctor->user->email}}</p>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <p class="form-control-static">{{$doctor->user->email}}</p>
                     </div>
 
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('admin.editdoctor', ['id' => $doctor->id]) }}" class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">Edit</a>
-                        <a href="{{ route('admin.showalldoctors') }}" class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">Back</a>
+                    <div class="d-flex justify-content-end mt-4">
+                        <a href="{{ route('admin.editdoctor', ['id' => $doctor->id]) }}" class="btn btn-primary mx-2">Edit</a>
+                        <a href="{{ route('admin.showalldoctors') }}" class="btn btn-secondary mx-2">Back</a>
                     </div>
                 {{-- </form> --}}
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -121,7 +127,7 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="../assets/js/main.js"></script>
-    
+
     <script>
         function clearDate() {
             document.getElementById('date').value = '';

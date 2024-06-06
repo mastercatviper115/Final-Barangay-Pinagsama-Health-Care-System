@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>LGU Healthcare Management System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -24,24 +24,30 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div class="container-fluid  bg-white shadow-sm">
+<div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
 
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 ">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <a href="/" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-hospital me-2"></i></i>PINAGSAMA
+                        HEALTHCARE</h1>
 
-
-<a href="#home" class="navbar-brand">
-    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-hospital me-2"></i></i>PINAGSAMA
-        HEALTHCARE</h1>
-
-</a>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -56,13 +62,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showappointments') }}">Show Appointment</a>
                             </li>
+                            <li class="nav-items"><a class="nav-link" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.showfollowup') }}">Followup</a></li>
+
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/approved') }}">Approved</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('show/disapproved') }}">Disapproved</a>
                             </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('showdoctor') }}">Records</a>
                             </li>
                             <li class="nav-item">
@@ -72,10 +84,11 @@
                                 <a class="nav-link" href="#contact">Approval</a>
                             </li> -->
                             <!-- Dropdown Menu for Doctors -->
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#doctors" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Doctors
                                 </a>
+
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="{{ route('admin.showalldoctors') }}">Show All Doctors</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
@@ -83,15 +96,14 @@
                                     <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
 
                                 </ul>
-                            </li>
-
-
+                            </li> -->
 
 
 
                             <x-app-layout>
 
                             </x-app-layout>
+
 
 
                         </ul>

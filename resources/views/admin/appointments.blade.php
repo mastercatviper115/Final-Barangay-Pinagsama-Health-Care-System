@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>LGU Healthcare Management System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -11,7 +11,9 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -22,10 +24,18 @@
     <link href="../assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- icon icon -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -66,12 +76,12 @@
 
 
     <!-- Navbar Start -->
-   
-            
+
+
 
         <div class="container-fluid sticky-top bg-white shadow-sm" >
             <div class="container">
-      
+
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
             <a href="#home" class="navbar-brand">
                 <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Brgy 14 Healthcare</h1>
@@ -79,7 +89,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse" id="navbarSupport" style="visibility: visible !important;">
                 <div class="navbar-nav ms-auto py-0">
               <ul class="navbar-nav ml-auto">
@@ -109,34 +119,34 @@
                         <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
                         <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
                         <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
-                         
+
                     </ul>
                 </li>
     <!--
                 @if(Route::has('login'))
-    
+
                 @auth
-    
+
                 <li class="nav-item">
                   <a class="nav-link"  href="{{url('myappointment')}}">My Appointment</a>
                 </li>
-    
+
                 <x-app-layout>
-               
+
                 </x-app-layout>
-    
+
                 @else
-                
+
                 <li class="nav-item" style="margin: 20px 0px 0px 10px ;">
                   <a class="btn btn-primary ml-lg-3" style="font-size: 20px;" href="{{route('login')}}">Login</a>
                 </li>
-    
+
                 <li class="nav-item" style="margin: 20px 0px 0px 10px ;">
                     <a class="btn btn-primary ml-lg-3" style="font-size: 20px;" href="{{route('register')}}">Register</a>
                   </li>
-    
+
                  @endAuth
-                 @endif 
+                 @endif
             -->
               </ul>
                 </div>
@@ -145,7 +155,7 @@
         </nav>
             </div>
         </div>
-      
+
        <div class="container-fluid page-body-wrapper">
 
         <div align="center" style="padding-top:100px;">
@@ -167,10 +177,10 @@
                     <td>{{$appointments->email}}</td>
                     <td>{{$appointments->phone}}</td>
                     <td>{{$appointments->address}}</td>
-            
+
                     <td><a onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger" href="{{url('deletecustomer', $appointments->id)}}">Delete</td>
                     <td><a class="btn btn-primary" href="{{url('update_customer', $appointments->id)}}">Update</td>
-                   
+
 
                 </tr>
                 @endforeach
@@ -206,7 +216,7 @@
                         <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
                     </div>
                 </div>
-           
+
             </div>
         </div>
     </div>
