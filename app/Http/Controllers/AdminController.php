@@ -36,7 +36,7 @@ class AdminController extends Controller
                     $date = \Carbon\Carbon::createFromFormat('Y-m-d', $request->date)->format('Y-m-d');
                     $query->whereDate('date', $date);
                 }
-                
+
                 return view('admin.home', compact('data'));
             } else {
                 return redirect()->back();
@@ -59,7 +59,7 @@ class AdminController extends Controller
 
         $data = $query->get();
 
-        $pdf = PDF::loadView('admin/appointments-not-approved-pdf', compact('data'));
+        $pdf = PDF::loadView('admin/appointments-not-approved-pdf', compact('data'))->setOptions(['defaultFont' => 'sans-serif']);
 
         $currentDateTime = \Carbon\Carbon::now()->format('Y_m_d_H_i_s');
         $filename = "appointments_not_approved_{$currentDateTime}.pdf";
@@ -111,23 +111,21 @@ class AdminController extends Controller
             $sheet->setCellValue('C' . $row, $val->type);
             $sheet->setCellValue('D' . $row, $val->service);
             $sheet->setCellValue('E' . $row, \Carbon\Carbon::parse($val->date)->format('m-d-Y'));
-            $sheet->setCellValue('F' . $row, $val->barangay_code);
+            $sheet->setCellValue('F' . $row, $val->barangay_id);
             $sheet->setCellValue('G' . $row, $val->status);
             $row++;
         }
 
         // Generate filename with current date and time
-        $filename = 'appointments_not_approved_' . date('Y-m-d_H-i-s') . '.csv';
+        $filename = 'appointments_not_approved_' . date('Y-m-d_H-i-s') . '.xlsx';
 
         // Redirect output to a client’s web browser (Xlsx)
+        $writer = new Xlsx($spreadsheet);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');
         // If you're serving to IE over SSL, then the following may be needed
         header('Cache-Control: max-age=1');
-
-        // Save the file
-        $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         exit;
     }
@@ -140,7 +138,7 @@ class AdminController extends Controller
         // Set document properties
         $spreadsheet->getProperties()->setCreator('Your Name')
             ->setTitle('Appointments Not Approved Data Export');
-        
+
         // Add title
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'Appointments Not Approved Data Export');  // Set title
@@ -176,7 +174,7 @@ class AdminController extends Controller
             $sheet->setCellValue('C' . $row, $val->type);
             $sheet->setCellValue('D' . $row, $val->service);
             $sheet->setCellValue('E' . $row, \Carbon\Carbon::parse($val->date)->format('m-d-Y'));
-            $sheet->setCellValue('F' . $row, $val->barangay_code);
+            $sheet->setCellValue('F' . $row, $val->barangay_id);
             $sheet->setCellValue('G' . $row, $val->status);
             $row++;
         }
@@ -465,7 +463,7 @@ class AdminController extends Controller
         if ($doctor) {
             // Find the associated user
             $user = User::find($doctor->user_id);
-        
+
             if ($user) {
                 // Update user details
                 $user->name = $request->name;
@@ -486,7 +484,7 @@ class AdminController extends Controller
                 }
 
                 $doctor->save();
-                
+
                 return redirect()->route('admin.showalldoctors')->with('success', 'Doctor and user updated successfully');
             } else {
                 return redirect()->route('admin.showalldoctors')->with('error', 'Associated user not found');

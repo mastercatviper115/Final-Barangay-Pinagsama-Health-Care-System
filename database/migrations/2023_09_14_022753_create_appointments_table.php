@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('service')->nullable();
             $table->string('date')->nullable();
-            $table->string('barangayid')->nullable();
+            $table->string('barangay_id')->nullable();
             $table->string('status')->nullable();
-            
+
 
             $table->timestamps();
         });

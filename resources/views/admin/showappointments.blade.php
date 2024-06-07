@@ -151,7 +151,7 @@
                             <th style="padding:10px" class="text-center">@sortablelink('type')</th>
                             <th style="padding:10px" class="text-center">@sortablelink('service')</th>
                             <th style="padding:10px" class="text-center">@sortablelink('date')</th>
-                            <th style="padding:10px" class="text-center">@sortablelink('barangay_code')</th>
+                            <th style="padding:10px" class="text-center">@sortablelink('barangay_id')</th>
                             <th style="padding:10px" class="text-center">@sortablelink('status')</th>
                             <th style="padding:10px;" class="text-center" colspan="2">Action</th>
 
@@ -164,7 +164,7 @@
                                     <td>{{ $appoint->type }}</td>
                                     <td>{{ $appoint->service }}</td>
                                     <td>{{ \Carbon\Carbon::parse($appoint->date)->format('m/d/Y') }}</td>
-                                    <td>{{ $appoint->barangay_code }}</td>
+                                    <td>{{ $appoint->barangay_id }}</td>
                                     <td>{{ $appoint->status }}</td>
 
                                     <td>

@@ -46,7 +46,7 @@ class HomeController extends Controller
                 }
 
                 $data = $query->paginate(10);
-                
+
                 return view('admin.home', compact('data'));
             }
         } else {
@@ -83,7 +83,7 @@ class HomeController extends Controller
 
         $data = $query->get();
 
-        $pdf = PDF::loadView('admin/appointments-approved-pdf', compact('data'));
+        $pdf = PDF::loadView('admin/appointments-approved-pdf', compact('data'))->setOptions(['defaultFont' => 'sans-serif']);
 
         $currentDateTime = \Carbon\Carbon::now()->format('Y_m_d_H_i_s');
         $filename = "appointments_approved_{$currentDateTime}.pdf";
@@ -118,7 +118,7 @@ class HomeController extends Controller
 
         // Retrieve appointment from the database
         $query = Appointment::whereStatus("Approved")->sortable();
-        
+
         // Apply date filter if selected
         if ($request->has('date') && $request->date != '') {
             $date = \Carbon\Carbon::createFromFormat('Y-m-d', $request->date)->format('Y-m-d');
@@ -135,23 +135,21 @@ class HomeController extends Controller
             $sheet->setCellValue('C' . $row, $val->type);
             $sheet->setCellValue('D' . $row, $val->service);
             $sheet->setCellValue('E' . $row, \Carbon\Carbon::parse($val->date)->format('m-d-Y'));
-            $sheet->setCellValue('F' . $row, $val->barangay_code);
+            $sheet->setCellValue('F' . $row, $val->barangay_id);
             $sheet->setCellValue('G' . $row, $val->status);
             $row++;
         }
 
         // Generate filename with current date and time
-        $filename = 'appointments_approved_' . date('Y-m-d_H-i-s') . '.csv';
+        $filename = 'appointments_approved_' . date('Y-m-d_H-i-s') . '.xlsx';
 
         // Redirect output to a client’s web browser (Xlsx)
+        $writer = new Xlsx($spreadsheet);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Content-Disposition: attachment;filename="' . urlencode($filename) . '"');
         header('Cache-Control: max-age=0');
         // If you're serving to IE over SSL, then the following may be needed
         header('Cache-Control: max-age=1');
-
-        // Save the file
-        $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
         exit;
     }
@@ -164,7 +162,7 @@ class HomeController extends Controller
         // Set document properties
         $spreadsheet->getProperties()->setCreator('Your Name')
             ->setTitle('Appointments Approved Data Export');
-        
+
         // Add title
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'Appointments Approved Data Export');  // Set title
@@ -200,7 +198,7 @@ class HomeController extends Controller
             $sheet->setCellValue('C' . $row, $val->type);
             $sheet->setCellValue('D' . $row, $val->service);
             $sheet->setCellValue('E' . $row, \Carbon\Carbon::parse($val->date)->format('m-d-Y'));
-            $sheet->setCellValue('F' . $row, $val->barangay_code);
+            $sheet->setCellValue('F' . $row, $val->barangay_id);
             $sheet->setCellValue('G' . $row, $val->status);
             $row++;
         }
@@ -229,9 +227,9 @@ class HomeController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|unique:users,email', // Unique email
             'date' => 'required|date', // Unique date
-            'barangay_code' => 'required|exists:barangays,barangay_code',
+            'barangay_id' => 'required|exists:barangays,barangay_id',
         ]);
-        
+
 
         $doctor = Doctor::with('specialization')
         ->whereHas('specialization', function($query) use ($request) {
@@ -245,15 +243,22 @@ class HomeController extends Controller
 
         // Check if appointment date with specifialization doctor exists
         $existing_appointment = Appointment::where('doctor_id', $doctor->id)
-        ->where('date', \Carbon\Carbon::parse($request->date)->format('Y-m-d')) 
+        ->where('date', \Carbon\Carbon::parse($request->date)->format('Y-m-d'))
         ->first();
 
         if ($existing_appointment) {
             return redirect()->back()->with('error', 'Appointment date already exists.');
         }
 
+        $existing_barangay = Appointment::where('barangay_id', $request->barangay_id)
+        ->first();
+
+        if ($existing_barangay) {
+            return redirect()->back()->with('error', 'Barangay ID already exists in the appointments.');
+        }
+
         // Saving appointment
-        $customer = Customer::where('user_id', Auth::user()->id)->first();
+        // $customer = Customer::where('user_id', Auth::user()->id)->first();
 
         $data = new Appointment();
         $data->name = $request->name;
@@ -261,13 +266,13 @@ class HomeController extends Controller
         $data->type = $request->type;
         $data->service = $request->service;
         $data->date = \Carbon\Carbon::parse($request->date)->format('Y-m-d');
-        $data->barangay_code = $request->barangay_code;
+        $data->barangay_id = $request->barangay_id;
         $data->doctor_id = $doctor->id;
         $data->status = 'Approved';
 
-        if($customer->id) {
-            $data->customer_id = $customer->id;
-        }
+        // if($customer->id) {
+        //     $data->customer_id = $customer->id;
+        // }
 
         $data->save();
 
@@ -346,11 +351,11 @@ class HomeController extends Controller
         }
 
         // $userId = Auth::user()->id;
-                
+
         // $existing_appointment = Appointment::whereHas('doctor', function ($query) use ($userId) {
         //     $query->where('user_id', $userId);
         // })
-        // ->where('date', $request->followup_date) 
+        // ->where('date', $request->followup_date)
         // ->with('doctor')
         // ->get();
 

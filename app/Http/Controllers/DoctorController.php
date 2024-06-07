@@ -34,7 +34,7 @@ class DoctorController extends Controller
                     $date = \Carbon\Carbon::createFromFormat('Y-m-d', $request->date)->format('Y-m-d');
                     $query->whereDate('date', $date);
                 }
-                
+
                 return view('doctor.home', compact('data'));
             } else {
                 return redirect()->back();
@@ -109,7 +109,7 @@ class DoctorController extends Controller
             $sheet->setCellValue('C' . $row, $val->type);
             $sheet->setCellValue('D' . $row, $val->service);
             $sheet->setCellValue('E' . $row, \Carbon\Carbon::parse($val->date)->format('m-d-Y'));
-            $sheet->setCellValue('F' . $row, $val->barangayid);
+            $sheet->setCellValue('F' . $row, $val->barangay_id);
             $sheet->setCellValue('G' . $row, $val->status);
             $row++;
         }
@@ -138,7 +138,7 @@ class DoctorController extends Controller
         // Set document properties
         $spreadsheet->getProperties()->setCreator('Your Name')
             ->setTitle('Appointments Not Approved Data Export');
-        
+
         // Add title
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'Appointments Not Approved Data Export');  // Set title
@@ -174,7 +174,7 @@ class DoctorController extends Controller
             $sheet->setCellValue('C' . $row, $val->type);
             $sheet->setCellValue('D' . $row, $val->service);
             $sheet->setCellValue('E' . $row, \Carbon\Carbon::parse($val->date)->format('m-d-Y'));
-            $sheet->setCellValue('F' . $row, $val->barangayid);
+            $sheet->setCellValue('F' . $row, $val->barangay_id);
             $sheet->setCellValue('G' . $row, $val->status);
             $row++;
         }

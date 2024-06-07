@@ -172,8 +172,8 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="barangay_code" class="form-label">Barangay ID</label>
-                        <p>{{$appoint->barangay_code}}</p>
+                        <label for="barangay_id" class="form-label">Barangay ID</label>
+                        <p>{{$appoint->barangay_id}}</p>
                     </div>
 
                     <div class="form-group mb-2">

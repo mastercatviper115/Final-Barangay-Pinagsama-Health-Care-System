@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('barangays', function (Blueprint $table) {
             $table->id();
-            $table->string('barangay_code')->nullable(); // older is barangayd baka magkaroon ng confusion sa barangay_id at barangayid kapag i rerelationship
-            $table->string('description')->nullable();
+            $table->string('barangay_id')->nullable(); // older is barangayd baka magkaroon ng confusion sa barangay_id at barangay_id kapag i rerelationship
             $table->string('name')->nullable();
             $table->boolean('is_active')->nullable();
             $table->timestamps();

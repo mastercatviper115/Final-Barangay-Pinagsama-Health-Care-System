@@ -419,8 +419,8 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <input type="text" class="form-control bg-light border-0"
-                                        placeholder="Barangay ID Number" style="height: 55px;" name="barangay_code">
-                                    @error('barangay_code')
+                                        placeholder="Barangay ID Number" style="height: 55px;" name="barangay_id">
+                                    @error('barangay_id')
                                         <span class="invalid-feedback" role="alert" style="display: block">
                                             <strong>{{ $message }}</strong>
                                         </span>

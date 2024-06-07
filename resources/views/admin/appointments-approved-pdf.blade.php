@@ -79,7 +79,7 @@
                         <td>{{ $appoint->type }}</td>
                         <td>{{ $appoint->service }}</td>
                         <td>{{ \Carbon\Carbon::parse($appoint->date)->format('m/d/Y') }}</td>
-                        <td>{{ $appoint->barangay_code }}</td>
+                        <td>{{ $appoint->barangay_id }}</td>
                         <td>{{ $appoint->status }}</td>
                     </tr>
                 @endforeach

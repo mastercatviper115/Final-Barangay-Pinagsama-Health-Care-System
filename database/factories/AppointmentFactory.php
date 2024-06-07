@@ -30,7 +30,7 @@ class AppointmentFactory extends Factory
             'type' => $type[$type_key],
             'service' => $service[$service_key],
             'date' => \Carbon\Carbon::now(),
-            'barangay_code' => Str::random(10),
+            'barangay_id' => Str::random(10),
             'status' => "Not Approved",
             'user_id' => rand(1, 2)
         ];

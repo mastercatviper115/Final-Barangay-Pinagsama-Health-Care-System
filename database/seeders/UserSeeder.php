@@ -149,8 +149,8 @@ class UserSeeder extends Seeder
         DB::table('barangays')->insert([
             [
                 'id' => 1,
-                'barangay_code' => 'BP-0001',
-                'description' => null,
+                'barangay_id' => 'BP-0001',
+
                 'name' => 'Mike Cruz',
                 'is_active' => 1,
 
@@ -159,8 +159,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'barangay_code' => 'BP-0002',
-                'description' => NULL,
+                'barangay_id' => 'BP-0002',
                 'name' => 'Jay Lingo',
                 'is_active' => 1,
 
@@ -169,8 +168,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'barangay_code' => 'BP-0003',
-                'description' => null,
+                'barangay_id' => 'BP-0003',
                 'name' => 'Arwin Santos',
                 'is_active' => 1,
 
@@ -179,8 +177,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'barangay_code' => 'BP-0004',
-                'description' => null,
+                'barangay_id' => 'BP-0004',
                 'name' => 'Michael Panganiban',
                 'is_active' => 1,
 
@@ -189,8 +186,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 5,
-                'barangay_code' => 'BP-0005',
-                'description' => null,
+                'barangay_id' => 'BP-0005',
                 'name' => 'Stephen Manalastas',
                 'is_active' => 1,
 
@@ -199,8 +195,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 6,
-                'barangay_code' => 'BP-0006',
-                'description' => null,
+                'barangay_id' => 'BP-0006',
                 'name' => 'Bolumino Maguid',
                 'is_active' => 1,
 
@@ -209,8 +204,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 7,
-                'barangay_code' => 'BP-0007',
-                'description' => null,
+                'barangay_id' => 'BP-0007',
+
                 'name' => 'Vindag Liwanag',
                 'is_active' => 1,
 
@@ -219,8 +214,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 8,
-                'barangay_code' => 'BP-0008',
-                'description' => null,
+                'barangay_id' => 'BP-0008',
+
                 'name' => 'Meya Nawita',
                 'is_active' => 1,
 
@@ -229,8 +224,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 9,
-                'barangay_code' => 'BP-0009',
-                'description' => null,
+                'barangay_id' => 'BP-0009',
+
                 'name' => 'Janine Pawinag',
                 'is_active' => 1,
 
@@ -239,8 +234,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 10,
-                'barangay_code' => 'BP-0010',
-                'description' => null,
+                'barangay_id' => 'BP-0010',
+
                 'name' => 'Allan Tenorio',
                 'is_active' => 1,
 

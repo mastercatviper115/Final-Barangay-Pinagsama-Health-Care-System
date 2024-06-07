@@ -17,7 +17,7 @@ class BarangayFactory extends Factory
     public function definition(): array
     {
         return [
-            'barangay_code' => null,
+            'barangay_id' => null,
             'description' => $this->faker->sentence,
             'name' => $this->faker->name,
             // 'is_active' => $this->faker->boolean,
