@@ -224,7 +224,7 @@ class HomeController extends Controller
         $request->validate([
             'type' => 'required',
             'service' => 'required',
-            'name' => 'required|string|max:255',
+            'name' => 'required|exists:barangays,name',
             'email' => 'required|string|max:255|unique:users,email', // Unique email
             'date' => 'required|date', // Unique date
             'barangay_id' => 'required|exists:barangays,barangay_id',

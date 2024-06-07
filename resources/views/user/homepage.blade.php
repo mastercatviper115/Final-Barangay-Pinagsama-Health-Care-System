@@ -430,7 +430,7 @@
 
 
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Make An
+                                    <button class="btn btn-primary w-100 py-3" >Make An
                                         Appointment</button>
                                 </div>
                             </div>

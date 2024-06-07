@@ -207,6 +207,8 @@
                                 @method('PUT')
                                 <button class="mx-1 btn btn-danger" onclick="return confirm('Are you sure to cancel this?')">Cancel</button>
                             </form>
+                            <button class="btn btn-success btn-approved" data-id={{ $appoint->id }}
+                                        data-type={{ $appoint->type }} >Send Email </button>
                         @endif
                         <button class="btn btn-default" style="border: 0.1px solid #D8D8D8; margin-left: 8px;">
                             <a href="{{ route('admin.showappointments') }}">Back</a>
