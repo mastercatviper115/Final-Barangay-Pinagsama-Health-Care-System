@@ -407,6 +407,7 @@
                                 <div class="col-12 col-sm-6">
                                     <div class="date" id="date" data-target-input="nearest">
                                         <input type="text"
+                                            autocomplete="off"
                                             class="form-control bg-light border-0 datetimepicker-input"
                                             placeholder="Appointment Date" data-target="#date"
                                             data-toggle="datetimepicker" style="height: 55px;" name="date">
@@ -486,12 +487,10 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4"
                         id="contact">Get In Touch</h4>
-                    <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
-                        dolor</p>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i> Pampano Street Brgy. 14,
-                        Caloocan City, Philippines</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
-                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
+                    <p class="mb-4">Pinagsama Health Care Taguig Think Big Dream Big Love Taguig our probinsyudad</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i> Pinagsama Health Center 9th Ave, Taguig, Philippines</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>@Taguig City</p>
+                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>(02)8555-7800</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4
@@ -502,12 +501,10 @@
                         <a class="text-light mb-2" href="#about"><i class="fa fa-angle-right me-2"></i>About Us</a>
                         <a class="text-light mb-2" href="#service"><i class="fa fa-angle-right me-2"></i>Our
                             Services</a>
-                        <a class="text-light mb-2" href="#team"><i class="fa fa-angle-right me-2"></i>Meet The
-                            Team</a>
-                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                        <a class="text-light" href="#contact"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                {{-- <div class="col-lg-3 col-md-6">
                     <h4
                         class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Popular Links</h4>
@@ -520,7 +517,7 @@
                             Team</a>
                         <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
                     </div>
-                </div>
+                </div> --}}
                 <!--<div class="col-lg-3 col-md-6">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Newsletter</h4>
                     <form action="">
@@ -599,6 +596,14 @@
                 }
             @endif
         });
+       
+
+// Sets the value to '' in case of an invalid date
+document.querySelector('input').onchange = evt => {
+  if (!validate(evt.target.value)) {
+    evt.target.value = '';
+  }
+}
     </script>
 </body>
 
