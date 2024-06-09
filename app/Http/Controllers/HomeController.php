@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 use App\Models\Doctor;
-
+use Carbon\Carbon;
 use App\Models\Appointment;
 use App\Models\Barangay;
 use App\Models\Customer;
@@ -218,6 +218,22 @@ class HomeController extends Controller
         $writer->save('php://output');
         exit;
     }
+    public function checkAppointments(Request $request)
+    {
+        $date = $request->get('date');
+        $appointmentsCount = Appointment::whereDate('date', $date)->count();
+
+        return response()->json(['appointments' => $appointmentsCount]);
+    }
+    public function getAvailableSlots(Request $request)
+    {
+        $date = $request->get('date');
+        $appointmentsCount = Appointment::whereDate('appointment_date', $date)->count();
+        $maxAppointments = 10; // Set your maximum appointment limit here
+        $availableSlots = $maxAppointments - $appointmentsCount;
+
+        return response()->json(['slots' => $availableSlots]);
+    }
 
     public function store_appointment(Request $request)
     {
@@ -226,7 +242,7 @@ class HomeController extends Controller
             'service' => 'required',
             'name' => 'required|exists:barangays,name',
             'email' => 'required|string|max:255|unique:users,email', // Unique email
-            'date' => 'required|date', // Unique date
+            'date' => 'required|date|after:today', // Unique date
             'barangay_id' => 'required|exists:barangays,barangay_id',
         ]);
 
@@ -242,20 +258,21 @@ class HomeController extends Controller
         }
 
         // Check if appointment date with specifialization doctor exists
-        $existing_appointment = Appointment::where('doctor_id', $doctor->id)
-        ->where('date', \Carbon\Carbon::parse($request->date)->format('Y-m-d'))
-        ->first();
 
-        if ($existing_appointment) {
-            return redirect()->back()->with('error', 'Appointment date already exists.');
-        }
 
         $existing_barangay = Appointment::where('barangay_id', $request->barangay_id)
+        ->whereDate('date', Carbon::parse($request->date)->format('Y-m-d'))
         ->first();
 
-        if ($existing_barangay) {
-            return redirect()->back()->with('error', 'Barangay ID already exists in the appointments.');
-        }
+    if ($existing_barangay) {
+        return redirect()->back()->with('error', 'Barangay ID already exists in the appointments.');
+    }
+
+    $appointmentsCount = Appointment::whereDate('date', Carbon::parse($request->date)->format('Y-m-d'))->count();
+
+    if ($appointmentsCount >= 10) {
+        return redirect()->back()->with('error', 'Appointment limit reached for this date. Please select another date.');
+    }
 
         // Saving appointment
         // $customer = Customer::where('user_id', Auth::user()->id)->first();
@@ -297,9 +314,7 @@ class HomeController extends Controller
             }
         }
 
-        return redirect()
-            ->back()
-            ->with('message', 'Appointment Request Successful. We will contact you soon.');
+        return redirect()->back()->with('success', 'Appointment created successfully.');
     }
 
     public function myappointment()
@@ -380,4 +395,5 @@ class HomeController extends Controller
             ->back()
             ->with('message', 'Email send is successful');
     }
+
 }

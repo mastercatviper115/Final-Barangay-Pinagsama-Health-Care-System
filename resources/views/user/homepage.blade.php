@@ -9,6 +9,15 @@
     <!-- Favicon -->
     <link href="../assets/img/favicon.ico" rel="icon">
 
+    <style>
+        .disabled-date {
+            background-color: #e9ecef !important;
+            color: red !important;
+            pointer-events: none;
+        }
+
+    </style>
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -404,21 +413,21 @@
                                 </div>
 
 
-                                <div class="col-12 col-sm-6">
-                                    <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text"
-                                            autocomplete="off"
-                                            class="form-control bg-light border-0 datetimepicker-input"
-                                            placeholder="Appointment Date" data-target="#date"
-                                            data-toggle="datetimepicker" style="height: 55px;" name="date">
-                                        @error('date')
-                                            <span class="invalid-feedback" role="alert" style="display: block">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
+                                    <div class="col-12 col-sm-6">
+        <div class="date" id="date" data-target-input="nearest">
+            <input type="text"
+                class="form-control bg-light border-0 datetimepicker-input"
+                placeholder="Appointment Date" data-target="#date"
+                data-toggle="datetimepicker" style="height: 55px;" name="date">
+            @error('date')
+                <span class="invalid-feedback" role="alert" style="display: block">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="slots-info" id="slots-info"></div>
+    </div>
+             <div class="col-12 col-sm-6">
                                     <input type="text" class="form-control bg-light border-0"
                                         placeholder="Barangay ID Number" style="height: 55px;" name="barangay_id">
                                     @error('barangay_id')
@@ -556,7 +565,10 @@
 
 
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -596,7 +608,7 @@
                 }
             @endif
         });
-       
+
 
 // Sets the value to '' in case of an invalid date
 document.querySelector('input').onchange = evt => {
@@ -604,6 +616,93 @@ document.querySelector('input').onchange = evt => {
     evt.target.value = '';
   }
 }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var today = moment();
+            $('#date').datetimepicker({
+                format: 'L', // Only date format
+                minDate: moment().add(1, 'days').startOf('day'), // Disable today and past days
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                },
+
+                buttons: {
+                    showToday: false // Disable "Today" button
+                }
+            }).on('dp.update', function (e) {
+                var $days = $(this).find('.day');
+                $days.each(function() {
+                    var $this = $(this);
+                    if ($this.is('.old, .new') || moment($this.data('day')).isBefore(moment(), 'day')) {
+                        $this.addClass('disabled-date');
+                    }
+                });
+            });
+
+            $('input[name="date"]').on('change.datetimepicker', function(e) {
+                var selectedDate = moment(e.date).format('YYYY-MM-DD');
+                checkAppointmentLimit(selectedDate);
+                showAvailableSlots(selectedDate);
+            });
+
+
+            function checkAppointmentLimit(date) {
+                $.ajax({
+                    url: '/check-appointments',
+                    method: 'GET',
+                    data: { date: date },
+                    success: function(response) {
+                        if(response.appointments >= 10) {
+                            alert('Appointment limit reached for this date. Please select another date.');
+                            $('input[name="date"]').val('');
+                        }
+                    },
+                    error: function() {
+                        alert('Error checking appointment limit. Please try again.');
+                    }
+                });
+            }
+        });
+
+        function showAvailableSlots(date) {
+                $.ajax({
+                    url: '/get-available-slots',
+                    method: 'GET',
+                    data: { date: date },
+                    success: function(response) {
+                        if(response.slots >= 0) {
+                            $('#slots-info').text('Available slots on ' + date + ': ' + response.slots);
+                        } else {
+                            $('#slots-info').text('No available slots on ' + date);
+                        }
+                    },
+                    error: function() {
+                        $('#slots-info').text('Error fetching available slots. Please try again.');
+                    }
+                });
+            }
+
+        // Additional validation on form submit
+        $('form').on('submit', function(e) {
+            var selectedDate = $('input[name="date"]').val();
+            if (!selectedDate || moment(selectedDate).isBefore(moment().add(1, 'days').startOf('day'))) {
+                e.preventDefault();
+                alert('Please select a valid future date.');
+            }
+        });
+    </script>
     </script>
 </body>
 

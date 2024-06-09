@@ -77,6 +77,9 @@ Route::group(['middleware' => ['auth', 'checkUserType']], function () {
     Route::get('export-pdf-show-appointments', [AdminController::class, 'exportPdf'])->name('export.pdf-show-appointments');
 });
 
+// routes/web.php
+Route::get('/check-appointments', [App\Http\Controllers\HomeController::class, 'checkAppointments']);
+Route::get('/get-available-slots', [App\Http\Controllers\HomeController::class, 'getAvailableSlots']);
 
 
 Route::post('/store-appointment', [HomeController::class, 'store_appointment'])->name('store.appointment');
