@@ -188,10 +188,10 @@
 
 
     <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Pinagsama Healthcare Management
+        <div class="container ">
+            <div class="row g-5 text-center justify-center">
+                <div class="col-md-6 ">
+                    <p class="mb-md-0 ">&copy; <a class="text-primary "  href="#home">Pinagsama Healthcare Management
                             System</a>. All Rights Reserved.</p>
                 </div>
             </div>

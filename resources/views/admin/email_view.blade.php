@@ -12,7 +12,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -69,20 +69,20 @@
             <li><a class="dropdown-item" href="{{ route('admin.createdoctor') }}">Add Doctor</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.showappointments') }}">Show Appointments</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.showfollowup') }}">Followup</a></li>
-             
+
         </ul>
       </li>
 <!--
 
-        
 
-         
+
+
 
           <x-app-layout>
-         
+
           </x-app-layout>
 
-          
+
         </ul>
           </div>
       </div> <!-- .navbar-collapse -->
@@ -90,10 +90,10 @@
   </nav>
       </div>
   </div>
-        
+
         <div class="container-fluid page-body-wrapper">
 
-          
+
 
 
           <div class="container" align="center" style="padding-top: 100px">
@@ -110,58 +110,58 @@
             <form action="{{url('sendemail',$data->id)}}" method="POST" >
 
               @csrf
-              
+
               <div style="padding:15px;">
-                
+
                 <label>Greeting</label>
                 <input type="text" style="color:black" name="greeting" placeholder="Write the name" required="">
               </div>
 
               <div style="padding:15px;">
-                
+
                 <label>Body</label>
                 <input type="text" style="color:black" name="body" placeholder="Write the number" required="">
               </div>
 
-              
+
 
               <div style="padding:15px;">
-                
+
                 <label>Action Text</label>
                 <input type="text" style="color:black" name="actiontext" placeholder="Write the room number" required="">
               </div>
 
               <div style="padding:15px;">
-                
+
                 <label>Action Url</label>
                 <input type="text" style="color:black" name="actionurl" placeholder="Write the room number" required="">
               </div>
 
               <div style="padding:15px;">
-                
+
                 <label>End Part</label>
                 <input type="text" style="color:black" name="endpart" placeholder="Write the room number" required="">
               </div>
 
-             
+
               <div style="padding:15px;">
-                
-                
+
+
                 <input type="submit" class="btn btn-success">
-                
+
               </div>
-              
+
             </form>
-  
+
           </div>
        </div>
-    
-       <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Pinagsama Healthcare Management System</a>. All Rights Reserved.</p>
-                </div>
+
+       <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0">
+        <div class="container ">
+            <div class="row g-5 text-center justify-center">
+                <div class="col-md-6 ">
+                    <p class="mb-md-0 ">&copy; <a class="text-primary "  href="#home">Pinagsama Healthcare Management
+                            System</a>. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

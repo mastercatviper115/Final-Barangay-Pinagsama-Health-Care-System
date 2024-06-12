@@ -43,17 +43,6 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'name' => 'User One',
-                'email' => 'user@user.com',
-                'password' => Hash::make('user'),
-                'usertype' => 0,
-                'email_verified_at' => Carbon::now(),
-                'remember_token' => 'KYWAcwx73s',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'id' => 4,
                 'name' => 'Doctor Two',
                 'email' => 'doctor2@doctor.com',
                 'password' => Hash::make('doctor'),
@@ -64,9 +53,64 @@ class UserSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id' => 5,
+                'id' => 4,
                 'name' => 'Doctor Three',
                 'email' => 'doctor3@doctor.com',
+                'password' => Hash::make('doctor'),
+                'usertype' => 2,
+                'email_verified_at' => Carbon::now(),
+                'remember_token' => 'KYWAcwx73s',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 5,
+                'name' => 'Doctor Four',
+                'email' => 'doctor4@doctor.com',
+                'password' => Hash::make('doctor'),
+                'usertype' => 2,
+                'email_verified_at' => Carbon::now(),
+                'remember_token' => 'KYWAcwx73s',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 6,
+                'name' => 'Doctor Five',
+                'email' => 'doctor5@doctor.com',
+                'password' => Hash::make('doctor'),
+                'usertype' => 2,
+                'email_verified_at' => Carbon::now(),
+                'remember_token' => 'KYWAcwx73s',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 7,
+                'name' => 'Doctor Six',
+                'email' => 'doctor6@doctor.com',
+                'password' => Hash::make('doctor'),
+                'usertype' => 2,
+                'email_verified_at' => Carbon::now(),
+                'remember_token' => 'KYWAcwx73s',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 8,
+                'name' => 'Doctor Seven',
+                'email' => 'doctor7@doctor.com',
+                'password' => Hash::make('doctor'),
+                'usertype' => 2,
+                'email_verified_at' => Carbon::now(),
+                'remember_token' => 'KYWAcwx73s',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'id' => 9,
+                'name' => 'Doctor Eight',
+                'email' => 'doctor8@doctor.com',
                 'password' => Hash::make('doctor'),
                 'usertype' => 2,
                 'email_verified_at' => Carbon::now(),
@@ -82,20 +126,6 @@ class UserSeeder extends Seeder
         $customer = User::where('email', 'user@user.com')->first();
 
         DB::table('customers')->delete();
-
-        DB::table('customers')->insert([
-            [
-                'id' => 1,
-                'name' => $customer->name,
-                'email' => $customer->email,
-                'phone' => '09123456789',
-                'address' => 'Rizal Ave Ext, Grace Park East, Caloocan',
-                'user_id' => $customer->id,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-        ]);
-
 
         DB::table('doctors')->delete();
 
@@ -146,6 +176,77 @@ class UserSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
         ]);
+        $doctor4 = User::where('email', 'doctor4@doctor.com')->first();
+
+        DB::table('doctors')->insert([
+            [
+                'id' => 4,
+                'name' => $doctor4->name,
+                'phone' => '09123456789',
+                'specialization_id' => 4,
+                'room' => '104',
+                'user_id' => $doctor4->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+        $doctor5 = User::where('email', 'doctor5@doctor.com')->first();
+
+        DB::table('doctors')->insert([
+            [
+                'id' => 5,
+                'name' => $doctor5->name,
+                'phone' => '09123456789',
+                'specialization_id' => 5,
+                'room' => '105',
+                'user_id' => $doctor5->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+        $doctor6 = User::where('email', 'doctor6@doctor.com')->first();
+
+        DB::table('doctors')->insert([
+            [
+                'id' => 6,
+                'name' => $doctor6->name,
+                'phone' => '09123456789',
+                'specialization_id' => 6,
+                'room' => '106',
+                'user_id' => $doctor6->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+        $doctor7 = User::where('email', 'doctor7@doctor.com')->first();
+
+        DB::table('doctors')->insert([
+            [
+                'id' => 7,
+                'name' => $doctor7->name,
+                'phone' => '09123456789',
+                'specialization_id' => 7,
+                'room' => '107',
+                'user_id' => $doctor7->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+        $doctor8 = User::where('email', 'doctor8@doctor.com')->first();
+
+        DB::table('doctors')->insert([
+            [
+                'id' => 8,
+                'name' => $doctor8->name,
+                'phone' => '09123456789',
+                'specialization_id' => 8,
+                'room' => '108',
+                'user_id' => $doctor8->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+        DB::table('barangays')->delete();
         DB::table('barangays')->insert([
             [
                 'id' => 1,
@@ -242,6 +343,7 @@ class UserSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+
         ]);
     }
 }

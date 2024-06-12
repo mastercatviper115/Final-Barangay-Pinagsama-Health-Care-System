@@ -490,10 +490,10 @@
     </div>
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light mt-5 py-5">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
+    <div class="container-fluid bg-dark text-light border-top border-secondary px-0 mx-0  py-4 absolute bottom-0 left-0">
+        <div class="container ">
+            <div class="row g-5 text-center justify-center">
+                <div class="col-md-6 ">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4"
                         id="contact">Get In Touch</h4>
                     <p class="mb-4">Pinagsama Health Care Taguig Think Big Dream Big Love Taguig our probinsyudad</p>
